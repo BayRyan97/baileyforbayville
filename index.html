@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bailey for Bayville — Mayor 2025</title>
+  <meta name="description" content="Bailey Ryan for Mayor of Bayville, NY. The Bayville we grew up in — for the next generation." />
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-7HE9Y56KY0"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-7HE9Y56KY0');
+  </script>
+
+  <style>
+    /* ─── Reset & Base ─────────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:   #1a2e4a;
+      --navy-dk:#111f33;
+      --gold:   #c9973a;
+      --sand:   #f0e6cf;
+      --cream:  #faf7f0;
+      --text:   #2b2b2b;
+      --muted:  #5a5a5a;
+      --white:  #ffffff;
+      --radius: 6px;
+      --section-pad: 80px 24px;
+      --max-w: 900px;
+      --font-serif: Georgia, 'Times New Roman', serif;
+      --font-sans:  'Segoe UI', system-ui, -apple-system, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-sans);
+      color: var(--text);
+      background: var(--cream);
+      line-height: 1.65;
+    }
+
+    img { display: block; width: 100%; height: 100%; object-fit: cover; }
+
+    a { color: var(--gold); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .container {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ─── Nav ───────────────────────────────────────────────────────────── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      background: var(--navy);
+      z-index: 100;
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.25);
+    }
+
+    .nav-brand {
+      font-family: var(--font-serif);
+      font-size: 1.15rem;
+      color: var(--gold);
+      letter-spacing: 0.03em;
+      font-weight: normal;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--sand);
+      font-size: 0.875rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--gold); text-decoration: none; }
+
+    /* hamburger */
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+    .nav-toggle span {
+      display: block;
+      width: 24px; height: 2px;
+      background: var(--sand);
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+
+    @media (max-width: 640px) {
+      .nav-toggle { display: flex; }
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%; left: 0; right: 0;
+        background: var(--navy-dk);
+        flex-direction: column;
+        gap: 0;
+        padding: 8px 0;
+      }
+      .nav-links.open { display: flex; }
+      .nav-links li a {
+        display: block;
+        padding: 12px 24px;
+      }
+    }
+
+    /* ─── Hero ──────────────────────────────────────────────────────────── */
+    #hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+      padding-top: 64px;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(to bottom, rgba(17,31,51,0.72) 0%, rgba(17,31,51,0.55) 60%, rgba(17,31,51,0.80) 100%),
+        url('images/hero.jpg') center/cover no-repeat;
+    }
+
+    /* placeholder gradient when no photo is present */
+    .hero-bg-fallback {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(160deg, var(--navy-dk) 0%, #24456e 50%, #1a3a5e 100%);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 680px;
+      padding: 48px 24px;
+    }
+
+    .hero-eyebrow {
+      display: inline-block;
+      font-size: 0.8rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 18px;
+      font-weight: 600;
+    }
+
+    .hero-name {
+      font-family: var(--font-serif);
+      font-size: clamp(2.8rem, 8vw, 5rem);
+      color: var(--white);
+      line-height: 1.1;
+      margin-bottom: 20px;
+      letter-spacing: -0.01em;
+    }
+
+    .hero-tagline {
+      font-size: clamp(1.05rem, 3vw, 1.35rem);
+      color: var(--sand);
+      font-style: italic;
+      margin-bottom: 36px;
+      line-height: 1.4;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 32px;
+      border-radius: var(--radius);
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.15s, box-shadow 0.15s;
+      letter-spacing: 0.02em;
+      border: none;
+    }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.25); text-decoration: none; }
+    .btn-primary { background: var(--gold); color: var(--navy-dk); }
+    .btn-outline { background: transparent; color: var(--white); border: 2px solid var(--white); }
+    .btn-outline:hover { background: rgba(255,255,255,0.1); }
+
+    .hero-wave {
+      position: absolute;
+      bottom: -2px; left: 0; right: 0;
+      line-height: 0;
+    }
+    .hero-wave svg { width: 100%; }
+
+    /* ─── Section Shared ────────────────────────────────────────────────── */
+    section { padding: var(--section-pad); }
+
+    .section-label {
+      display: block;
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .section-title {
+      font-family: var(--font-serif);
+      font-size: clamp(1.7rem, 4vw, 2.4rem);
+      color: var(--navy);
+      margin-bottom: 20px;
+      line-height: 1.2;
+    }
+
+    .section-body {
+      color: var(--muted);
+      font-size: 1.05rem;
+      max-width: 680px;
+    }
+
+    /* ─── Why I'm Running ───────────────────────────────────────────────── */
+    #why {
+      background: var(--cream);
+    }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: start;
+      margin-top: 40px;
+    }
+
+    .why-photo {
+      aspect-ratio: 4/5;
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: var(--sand);
+      position: relative;
+    }
+
+    .why-photo img { position: absolute; inset: 0; }
+
+    .photo-placeholder {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: #a0927a;
+      font-size: 0.82rem;
+      text-align: center;
+      padding: 24px;
+      gap: 12px;
+    }
+
+    .photo-placeholder svg { opacity: 0.45; }
+
+    .why-text p { margin-bottom: 16px; color: var(--muted); }
+    .why-text p:last-child { margin-bottom: 0; }
+
+    .pull-quote {
+      border-left: 4px solid var(--gold);
+      padding: 16px 20px;
+      margin: 24px 0;
+      font-family: var(--font-serif);
+      font-size: 1.15rem;
+      color: var(--navy);
+      font-style: italic;
+      background: rgba(201,151,58,0.07);
+      border-radius: 0 var(--radius) var(--radius) 0;
+    }
+
+    @media (max-width: 680px) {
+      .why-grid { grid-template-columns: 1fr; }
+      .why-photo { aspect-ratio: 3/2; }
+    }
+
+    /* ─── Issues ─────────────────────────────────────────────────────────── */
+    #issues {
+      background: var(--navy);
+      color: var(--sand);
+    }
+
+    #issues .section-title { color: var(--white); }
+    #issues .section-body { color: var(--sand); opacity: 0.85; }
+
+    .issues-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      margin-top: 48px;
+    }
+
+    .issue-card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: var(--radius);
+      padding: 28px 24px;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .issue-card:hover {
+      background: rgba(255,255,255,0.1);
+      transform: translateY(-3px);
+    }
+
+    .issue-icon {
+      font-size: 2rem;
+      margin-bottom: 16px;
+      line-height: 1;
+    }
+
+    .issue-card h3 {
+      font-family: var(--font-serif);
+      font-size: 1.2rem;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+
+    .issue-card p { font-size: 0.95rem; color: var(--sand); opacity: 0.88; }
+
+    @media (max-width: 680px) {
+      .issues-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ─── Issue Solicitation Form ───────────────────────────────────────── */
+    #form-section {
+      background: var(--sand);
+    }
+
+    .form-wrap {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 40px;
+      box-shadow: 0 4px 24px rgba(26,46,74,0.08);
+      max-width: 640px;
+      margin: 40px auto 0;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 6px;
+      letter-spacing: 0.02em;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 10px 14px;
+      border: 1.5px solid #d4c9b5;
+      border-radius: var(--radius);
+      font-size: 1rem;
+      font-family: var(--font-sans);
+      color: var(--text);
+      background: var(--cream);
+      transition: border-color 0.2s, box-shadow 0.2s;
+      appearance: none;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      outline: none;
+      border-color: var(--gold);
+      box-shadow: 0 0 0 3px rgba(201,151,58,0.18);
+    }
+
+    .form-group textarea { resize: vertical; min-height: 120px; }
+
+    .form-submit { text-align: center; margin-top: 8px; }
+    .form-submit .btn { width: 100%; font-size: 1.05rem; padding: 15px; }
+
+    .form-note {
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-top: 14px;
+    }
+
+    @media (max-width: 560px) {
+      .form-row { grid-template-columns: 1fr; }
+      .form-wrap { padding: 28px 20px; }
+    }
+
+    /* ─── Gallery ───────────────────────────────────────────────────────── */
+    #gallery {
+      background: var(--cream);
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: auto auto;
+      gap: 12px;
+      margin-top: 40px;
+    }
+
+    .gallery-cell {
+      position: relative;
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: var(--sand);
+    }
+
+    .gallery-cell.tall { grid-row: span 2; }
+
+    .gallery-cell .aspect {
+      padding-top: 100%;
+    }
+
+    .gallery-cell.tall .aspect {
+      padding-top: 200%;
+    }
+
+    /* on mobile the tall cell doesn't span */
+    @media (max-width: 640px) {
+      .gallery-grid { grid-template-columns: 1fr 1fr; }
+      .gallery-cell.tall { grid-row: span 1; }
+      .gallery-cell.tall .aspect { padding-top: 100%; }
+    }
+
+    .gallery-cell img,
+    .gallery-inner {
+      position: absolute;
+      inset: 0;
+    }
+
+    .gallery-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      text-align: center;
+      padding: 16px;
+      color: #a0927a;
+      font-size: 0.78rem;
+    }
+
+    .gallery-label {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      background: linear-gradient(transparent, rgba(17,31,51,0.65));
+      color: var(--white);
+      font-size: 0.78rem;
+      padding: 20px 12px 10px;
+      letter-spacing: 0.04em;
+    }
+
+    /* ─── Get Involved ──────────────────────────────────────────────────── */
+    #involved {
+      background: var(--gold);
+      text-align: center;
+    }
+
+    #involved .section-label { color: var(--navy-dk); opacity: 0.7; }
+    #involved .section-title { color: var(--navy-dk); }
+    #involved .section-body { color: var(--navy-dk); opacity: 0.8; margin: 0 auto 36px; }
+
+    .involved-buttons {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-dark { background: var(--navy); color: var(--white); }
+    .btn-dark:hover { background: var(--navy-dk); }
+
+    .share-row {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      margin-top: 28px;
+      flex-wrap: wrap;
+    }
+
+    .share-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 20px;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--white);
+      border: none;
+      cursor: pointer;
+      transition: opacity 0.15s, transform 0.15s;
+    }
+
+    .share-btn:hover { opacity: 0.88; transform: translateY(-1px); text-decoration: none; }
+    .share-btn.fb  { background: #1877f2; }
+    .share-btn.tw  { background: #000000; }
+    .share-btn.wa  { background: #25d366; }
+    .share-btn.cp  { background: var(--navy); }
+
+    /* ─── Footer ─────────────────────────────────────────────────────────── */
+    footer {
+      background: var(--navy-dk);
+      color: var(--sand);
+      padding: 36px 24px;
+      text-align: center;
+      font-size: 0.85rem;
+    }
+
+    footer p { margin-bottom: 6px; opacity: 0.75; }
+    footer p:first-child { opacity: 1; font-weight: 600; color: var(--white); }
+    footer a { color: var(--gold); }
+
+    /* ─── Scroll reveal ─────────────────────────────────────────────────── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── Navigation ──────────────────────────────────────────────────── -->
+  <nav>
+    <span class="nav-brand">Bailey for Bayville</span>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#why">Why I'm Running</a></li>
+      <li><a href="#issues">Issues</a></li>
+      <li><a href="#form-section">Get In Touch</a></li>
+      <li><a href="#gallery">Photos</a></li>
+      <li><a href="#involved">Get Involved</a></li>
+    </ul>
+  </nav>
+
+  <!-- ── Hero ────────────────────────────────────────────────────────── -->
+  <section id="hero">
+    <div class="hero-bg-fallback"></div>
+    <!-- Once you add images/hero.jpg, the line below will overlay it: -->
+    <!-- <div class="hero-bg"></div> -->
+
+    <div class="hero-content">
+      <span class="hero-eyebrow">Bayville, NY &mdash; Mayor 2025</span>
+      <h1 class="hero-name">Bailey Ryan</h1>
+      <p class="hero-tagline">"The Bayville we grew up in —<br>for the next generation."</p>
+      <a href="#form-section" class="btn btn-primary">Tell Me What Matters to You</a>
+    </div>
+
+    <div class="hero-wave">
+      <svg viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+        <path d="M0 30 Q360 60 720 30 Q1080 0 1440 30 L1440 60 L0 60 Z" fill="#faf7f0"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- ── Why I'm Running ──────────────────────────────────────────────── -->
+  <section id="why">
+    <div class="container">
+      <span class="section-label reveal">About Bailey</span>
+      <h2 class="section-title reveal">Why I'm Running</h2>
+
+      <div class="why-grid">
+        <div class="why-photo reveal">
+          <!-- Replace with: <img src="images/bailey-portrait.jpg" alt="Bailey Ryan" /> -->
+          <div class="photo-placeholder">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/>
+              <path d="m21 15-5-5L5 21"/>
+            </svg>
+            <span>Drop in <strong>bailey-portrait.jpg</strong><br>inside the <code>images/</code> folder</span>
+          </div>
+        </div>
+
+        <div class="why-text reveal">
+          <p>
+            My family has called Bayville home for three generations. My grandparents raised their kids on Shore Road; my parents raised me here too — swimming off the public beach, knowing every neighbor on the block, watching the sun set over the Sound. This village shaped who I am.
+          </p>
+
+          <div class="pull-quote">
+            "I'm not running because I had a plan. I'm running because no one else stepped up — and I love this place too much to stay quiet."
+          </div>
+
+          <p>
+            Bayville is at a crossroads. Rising costs are pushing out the families who built this community. Our waterfront — one of the last stretches of publicly accessible shoreline on the North Shore — is under constant development pressure. Our small businesses need a champion at Village Hall, not just a listening ear.
+          </p>
+
+          <p>
+            I'm not a politician. I'm a neighbor. I have no special interests to protect and no donors to answer to. Just a deep belief that the people who live here deserve a mayor who actually lives here — and who will fight like it.
+          </p>
+
+          <a href="#form-section" class="btn btn-primary" style="margin-top:8px;">Share What's on Your Mind →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Issues ──────────────────────────────────────────────────────── -->
+  <section id="issues">
+    <div class="container">
+      <span class="section-label reveal">What I'll Fight For</span>
+      <h2 class="section-title reveal">The Issues That Matter</h2>
+      <p class="section-body reveal">These aren't talking points pulled from a campaign handbook — they're the things I hear on the dock, at the diner, and in the school pickup line every single week.</p>
+
+      <div class="issues-grid">
+        <div class="issue-card reveal">
+          <div class="issue-icon">🌊</div>
+          <h3>Waterfront Preservation</h3>
+          <p>Bayville's shoreline is our greatest asset. I'll fight to keep public beach access open, push back on over-development, and protect the ecosystems that make this place worth living in for generations to come.</p>
+        </div>
+
+        <div class="issue-card reveal">
+          <div class="issue-icon">🏪</div>
+          <h3>Local Business</h3>
+          <p>Our Main Street shops and waterfront restaurants are the heart of village life. I'll work to streamline permits, reduce unnecessary red tape, and make Bayville a place where small businesses can actually thrive.</p>
+        </div>
+
+        <div class="issue-card reveal">
+          <div class="issue-icon">♿</div>
+          <h3>Accessibility</h3>
+          <p>Every resident — regardless of age or ability — deserves full access to our parks, beaches, and public facilities. Bayville should be a village that works for everyone, including the seniors and families who've been here longest.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Form ──────────────────────────────────────────────────────────── -->
+  <section id="form-section">
+    <div class="container">
+      <span class="section-label reveal" style="display:block;text-align:center;">Your Voice Matters</span>
+      <h2 class="section-title reveal" style="text-align:center;">Tell Me What Matters to You</h2>
+      <p class="section-body reveal" style="text-align:center;margin:0 auto;">
+        This campaign is built on listening. Whatever's on your mind — a pothole, a policy, a concern you've never heard a candidate mention — I want to hear it.
+      </p>
+
+      <div class="form-wrap reveal">
+        <!--
+          Formspree: replace YOUR_FORM_ID below with the ID from your Formspree dashboard.
+          Example: action="https://formspree.io/f/abcdefgh"
+        -->
+        <form action="https://formspree.io/f/xpqezlvo" method="POST" id="contactForm">
+          <input type="hidden" name="_subject" value="Bailey for Bayville — Constituent Message" />
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="first-name">First Name *</label>
+              <input type="text" id="first-name" name="first_name" required placeholder="Jane" />
+            </div>
+            <div class="form-group">
+              <label for="last-name">Last Name</label>
+              <input type="text" id="last-name" name="last_name" placeholder="Smith" />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email Address *</label>
+            <input type="email" id="email" name="email" required placeholder="jane@example.com" />
+          </div>
+
+          <div class="form-group">
+            <label for="neighborhood">Neighborhood / Street (optional)</label>
+            <input type="text" id="neighborhood" name="neighborhood" placeholder="e.g., Shore Road, Bayville Beach area…" />
+          </div>
+
+          <div class="form-group">
+            <label for="message">What matters most to you? *</label>
+            <textarea id="message" name="message" required placeholder="Tell me what you'd like to see change — or what you want to protect — in Bayville."></textarea>
+          </div>
+
+          <div class="form-submit">
+            <button type="submit" class="btn btn-primary">Send My Message</button>
+          </div>
+          <p class="form-note">Your message goes directly to Bailey. No spam, no list-selling.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Gallery ──────────────────────────────────────────────────────── -->
+  <section id="gallery">
+    <div class="container">
+      <span class="section-label reveal">Bayville</span>
+      <h2 class="section-title reveal">Our Village</h2>
+      <p class="section-body reveal">Drop your photos into the <code>images/</code> folder and update the <code>src</code> attributes below. Suggested filenames are labeled on each slot.</p>
+
+      <div class="gallery-grid">
+
+        <!-- Tall feature cell -->
+        <div class="gallery-cell tall reveal">
+          <div class="aspect"></div>
+          <!-- <img src="images/gallery-waterfront.jpg" alt="Bayville waterfront" /> -->
+          <div class="gallery-inner">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/>
+              <path d="m21 15-5-5L5 21"/>
+            </svg>
+            <span><strong>gallery-waterfront.jpg</strong><br>Bayville waterfront / beach</span>
+          </div>
+          <div class="gallery-label">Bayville Waterfront</div>
+        </div>
+
+        <!-- Top-right -->
+        <div class="gallery-cell reveal">
+          <div class="aspect"></div>
+          <!-- <img src="images/gallery-mainstreet.jpg" alt="Main Street Bayville" /> -->
+          <div class="gallery-inner">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/>
+              <path d="m21 15-5-5L5 21"/>
+            </svg>
+            <span><strong>gallery-mainstreet.jpg</strong></span>
+          </div>
+          <div class="gallery-label">Main Street</div>
+        </div>
+
+        <!-- Middle-right -->
+        <div class="gallery-cell reveal">
+          <div class="aspect"></div>
+          <!-- <img src="images/gallery-community.jpg" alt="Community event" /> -->
+          <div class="gallery-inner">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/>
+              <path d="m21 15-5-5L5 21"/>
+            </svg>
+            <span><strong>gallery-community.jpg</strong></span>
+          </div>
+          <div class="gallery-label">Community</div>
+        </div>
+
+        <!-- Bottom-left of second row -->
+        <div class="gallery-cell reveal">
+          <div class="aspect"></div>
+          <!-- <img src="images/gallery-sunset.jpg" alt="Bayville sunset over the Sound" /> -->
+          <div class="gallery-inner">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/>
+              <path d="m21 15-5-5L5 21"/>
+            </svg>
+            <span><strong>gallery-sunset.jpg</strong></span>
+          </div>
+          <div class="gallery-label">Sunset on the Sound</div>
+        </div>
+
+        <!-- Bottom-right of second row -->
+        <div class="gallery-cell reveal">
+          <div class="aspect"></div>
+          <!-- <img src="images/gallery-bailey-canvassing.jpg" alt="Bailey canvassing" /> -->
+          <div class="gallery-inner">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/>
+              <path d="m21 15-5-5L5 21"/>
+            </svg>
+            <span><strong>gallery-bailey-canvassing.jpg</strong></span>
+          </div>
+          <div class="gallery-label">Out Knocking Doors</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Get Involved ─────────────────────────────────────────────────── -->
+  <section id="involved">
+    <div class="container">
+      <span class="section-label reveal">Join Us</span>
+      <h2 class="section-title reveal">Get Involved</h2>
+      <p class="section-body reveal">The best campaigns are built by neighbors, not consultants. Sign up to volunteer or spread the word — every door knock and shared post makes a real difference in a village this size.</p>
+
+      <div class="involved-buttons reveal">
+        <a href="#form-section" class="btn btn-dark">Volunteer with Us</a>
+        <a href="#form-section" class="btn btn-outline" style="border-color:var(--navy-dk);color:var(--navy-dk);">Sign Up for Updates</a>
+      </div>
+
+      <div class="share-row reveal">
+        <a class="share-btn fb" id="shareFb" href="#" target="_blank" rel="noopener">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          Share on Facebook
+        </a>
+        <a class="share-btn tw" id="shareTw" href="#" target="_blank" rel="noopener">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M4 4l16 16M4 20 20 4" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>
+          Share on X
+        </a>
+        <a class="share-btn wa" id="shareWa" href="#" target="_blank" rel="noopener">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.832-1.438A9.945 9.945 0 0 0 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/></svg>
+          Share on WhatsApp
+        </a>
+        <button class="share-btn cp" id="copyLink">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+          Copy Link
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Footer ──────────────────────────────────────────────────────── -->
+  <footer>
+    <div class="container">
+      <p>Paid for by Bailey Ryan for Bayville</p>
+      <p>Bayville, NY &bull; Nassau County, Long Island</p>
+      <p style="margin-top:10px;font-size:0.78rem;">This site uses Google Analytics to understand visitor traffic.</p>
+    </div>
+  </footer>
+
+  <!-- ── Scripts ─────────────────────────────────────────────────────── -->
+  <script>
+    // Mobile nav toggle
+    const navToggle = document.getElementById('navToggle');
+    const navLinks  = document.getElementById('navLinks');
+    navToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+    navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+
+    // Scroll reveal
+    const revealEls = document.querySelectorAll('.reveal');
+    const observer  = new IntersectionObserver(
+      entries => entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } }),
+      { threshold: 0.12 }
+    );
+    revealEls.forEach(el => observer.observe(el));
+
+    // Share buttons — build URLs at runtime so they reflect actual deployed URL
+    const pageUrl = encodeURIComponent(window.location.href);
+    const pageTitle = encodeURIComponent('Bailey for Bayville — Mayor 2025');
+
+    document.getElementById('shareFb').href =
+      `https://www.facebook.com/sharer/sharer.php?u=${pageUrl}`;
+
+    document.getElementById('shareTw').href =
+      `https://twitter.com/intent/tweet?url=${pageUrl}&text=${pageTitle}`;
+
+    document.getElementById('shareWa').href =
+      `https://api.whatsapp.com/send?text=${pageTitle}%20${pageUrl}`;
+
+    document.getElementById('copyLink').addEventListener('click', () => {
+      navigator.clipboard.writeText(window.location.href).then(() => {
+        const btn = document.getElementById('copyLink');
+        const orig = btn.innerHTML;
+        btn.innerHTML = '✓ Copied!';
+        setTimeout(() => btn.innerHTML = orig, 2000);
+      });
+    });
+
+    // Simple form success message
+    const form = document.getElementById('contactForm');
+    if (form) {
+      form.addEventListener('submit', () => {
+        // Formspree handles the redirect; this just tracks the GA event
+        if (typeof gtag !== 'undefined') {
+          gtag('event', 'form_submit', { event_category: 'engagement', event_label: 'issue_form' });
+        }
+      });
+    }
+  </script>
+
+</body>
+</html>
