@@ -493,6 +493,65 @@
       letter-spacing: 0.04em;
     }
 
+    /* ─── FAQ ───────────────────────────────────────────────────────────── */
+    #faq {
+      background: var(--cream);
+    }
+
+    .faq-list {
+      max-width: 720px;
+      margin: 48px auto 0;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid #ddd3bc;
+    }
+
+    .faq-item:first-child { border-top: 1px solid #ddd3bc; }
+
+    .faq-question {
+      width: 100%;
+      background: none;
+      border: none;
+      text-align: left;
+      padding: 20px 0;
+      font-family: var(--font-serif);
+      font-size: 1.1rem;
+      color: var(--navy);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .faq-question:hover { color: var(--gold); }
+
+    .faq-chevron {
+      flex-shrink: 0;
+      width: 20px; height: 20px;
+      transition: transform 0.25s;
+      color: var(--gold);
+    }
+
+    .faq-item.open .faq-chevron { transform: rotate(180deg); }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease, padding 0.25s;
+    }
+
+    .faq-item.open .faq-answer { max-height: 400px; }
+
+    .faq-answer p {
+      color: var(--muted);
+      padding-bottom: 20px;
+      line-height: 1.7;
+    }
+
+    .faq-answer strong { color: var(--navy); }
+
     /* ─── Get Involved ──────────────────────────────────────────────────── */
     #involved {
       background: var(--gold);
@@ -578,6 +637,7 @@
       <li><a href="#why">Why I'm Running</a></li>
       <li><a href="#issues">Issues</a></li>
       <li><a href="#form-section">Get In Touch</a></li>
+      <li><a href="#faq">FAQ</a></li>
       <li><a href="#involved">Get Involved</a></li>
     </ul>
   </nav>
@@ -729,6 +789,98 @@
   </section>
 
 
+  <!-- ── FAQ ────────────────────────────────────────────────────────────── -->
+  <section id="faq">
+    <div class="container">
+      <span class="section-label reveal" style="display:block;text-align:center;">Good Questions</span>
+      <h2 class="section-title reveal" style="text-align:center;">Frequently Asked</h2>
+
+      <div class="faq-list">
+
+        <div class="faq-item reveal">
+          <button class="faq-question">
+            Have you held public office before?
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p>No — and I think that's actually a good thing. I'm not coming into this with political debts, party obligations, or a career to protect. I'm coming in as a neighbor who loves this village and wants to do right by it. What I bring instead is a professional background in data and business analysis, a lifetime of living here, and a genuine commitment to listening before acting.</p>
+          </div>
+        </div>
+
+        <div class="faq-item reveal">
+          <button class="faq-question">
+            What do you do for work?
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p>I'm a Senior Business Analyst at Progyny, a benefits company focused on fertility and family-building. My job is to take complex problems, dig into the data, and find solutions that actually work — and that's exactly how I'd approach Village Hall. No guessing, no grandstanding. Just honest problem-solving.</p>
+          </div>
+        </div>
+
+        <div class="faq-item reveal">
+          <button class="faq-question">
+            How long have you lived in Bayville?
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p>My entire life — all 29 years of it. My dad has lived here his entire 61 years. This isn't a place I moved to. It's the only home I've ever known, and that's exactly why I'm running.</p>
+          </div>
+        </div>
+
+        <div class="faq-item reveal">
+          <button class="faq-question">
+            What's the first thing you'd do if elected?
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p>Start holding monthly public meetings — open, accessible, and actually useful. Not rubber-stamp sessions where decisions have already been made. Real forums where residents can raise issues, ask hard questions, and hear straight answers. Village Hall should work for the village.</p>
+          </div>
+        </div>
+
+        <div class="faq-item reveal">
+          <button class="faq-question">
+            What makes you different from whoever is currently in office?
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p>I'm persistent and I want to be held accountable. If I say I'm going to do something, I mean it — and I expect you to call me out if I don't follow through. That's a promise, not a talking point.</p>
+          </div>
+        </div>
+
+        <div class="faq-item reveal">
+          <button class="faq-question">
+            Do you have a specific plan for flooding and storm prep?
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p>My plan is to hire the right experts and trust what they say. I believe in science and I believe in engineers. Flooding is a serious threat to this village and it deserves a serious, evidence-based response — not political posturing. I'll bring in the professionals, listen to their recommendations, and fight to get them funded.</p>
+          </div>
+        </div>
+
+        <div class="faq-item reveal">
+          <button class="faq-question">
+            How do you plan to pay for any of this?
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p>Honestly, that's something we'll have to figure out together — and I'd rather tell you that than overpromise. Village budgets are tight. What I can commit to is being transparent about every dollar, pursuing every available grant and state funding opportunity, and making sure residents always know where the money is going and why.</p>
+          </div>
+        </div>
+
+        <div class="faq-item reveal">
+          <button class="faq-question">
+            Are you running with a party?
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p>I'm running as an independent — no party, no machine, no one pulling strings. Because the election is approaching quickly, <strong>you'll need to write my name in on your ballot: Bailey Ryan</strong>. It takes one extra second and it means everything. Spread the word.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
   <!-- ── Get Involved ─────────────────────────────────────────────────── -->
   <section id="involved">
     <div class="container">
@@ -806,6 +958,16 @@
         const orig = btn.innerHTML;
         btn.innerHTML = '✓ Copied!';
         setTimeout(() => btn.innerHTML = orig, 2000);
+      });
+    });
+
+    // FAQ accordion
+    document.querySelectorAll('.faq-question').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest('.faq-item');
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+        if (!isOpen) item.classList.add('open');
       });
     });
 
