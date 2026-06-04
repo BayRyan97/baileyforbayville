@@ -253,6 +253,12 @@
     }
 
     .why-photo {
+      position: sticky;
+      top: 88px;
+      align-self: start;
+    }
+
+    .why-photo-inner {
       aspect-ratio: 4/5;
       border-radius: var(--radius);
       overflow: hidden;
@@ -602,7 +608,9 @@
 
       <div class="why-grid">
         <div class="why-photo reveal">
-          <img src="images/bailey-portrait.jpg" alt="Bailey Ryan" />
+          <div class="why-photo-inner">
+            <img src="images/bailey-portrait.jpg" alt="Bailey Ryan" />
+          </div>
         </div>
 
         <div class="why-text reveal">
