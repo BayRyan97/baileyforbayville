@@ -315,7 +315,7 @@
 
     .issues-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(4, 1fr);
       gap: 28px;
       margin-top: 48px;
     }
@@ -348,7 +348,10 @@
 
     .issue-card p { font-size: 0.95rem; color: var(--sand); opacity: 0.88; }
 
-    @media (max-width: 680px) {
+    @media (max-width: 860px) {
+      .issues-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 480px) {
       .issues-grid { grid-template-columns: 1fr; }
     }
 
@@ -649,8 +652,14 @@
       <div class="issues-grid">
         <div class="issue-card reveal">
           <div class="issue-icon">🌊</div>
-          <h3>Waterfront Preservation</h3>
-          <p>Bayville's shoreline is our greatest asset. I'll fight to keep public beach access open, push back on over-development, and protect the ecosystems that make this place worth living in for generations to come.</p>
+          <h3>Waterfront & Flood Resilience</h3>
+          <p>Bayville is on the water — and that means we're on the front lines of every nor'easter and storm surge. I'll push for real investment in drainage, flood preparedness, and keeping our shoreline and public beach access protected for the long haul.</p>
+        </div>
+
+        <div class="issue-card reveal">
+          <div class="issue-icon">💧</div>
+          <h3>Water Quality</h3>
+          <p>Long Island Sound is our backyard, and we have a responsibility to protect it. Overdevelopment, runoff, and aging septic systems are putting our water at risk. I'll fight for the policies and infrastructure that keep the Sound clean for swimming, fishing, and generations to come.</p>
         </div>
 
         <div class="issue-card reveal">
