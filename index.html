@@ -920,26 +920,22 @@
     </div>
   </section>
 
-  <!-- ── Photo Gallery ──────────────────────────────────────────────── -->
-  <section id="gallery" style="background:var(--navy);padding:60px 0;">
-    <div style="display:grid;grid-template-columns:repeat(5,1fr);height:420px;">
-      <div style="overflow:hidden;">
-        <img src="images/IMG_1355.jpg" alt="Bayville waterfront road" style="width:100%;height:100%;object-fit:cover;object-position:center center;transition:transform 0.4s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" />
-      </div>
-      <div style="overflow:hidden;">
-        <img src="images/IMG_1364.jpg" alt="Bayville bridge" style="width:100%;height:100%;object-fit:cover;object-position:center center;transition:transform 0.4s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" />
-      </div>
-      <div style="overflow:hidden;">
-        <img src="images/IMG_1421.jpg" alt="Bayville gazebo" style="width:100%;height:100%;object-fit:cover;object-position:center 30%;transition:transform 0.4s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" />
-      </div>
-      <div style="overflow:hidden;">
-        <img src="images/IMG_1536.jpg" alt="Bayville marina sunset" style="width:100%;height:100%;object-fit:cover;object-position:center center;transition:transform 0.4s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" />
-      </div>
-      <div style="overflow:hidden;">
-        <img src="images/IMG_1554.jpg" alt="Bayville beach sunset" style="width:100%;height:100%;object-fit:cover;object-position:center 30%;transition:transform 0.4s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" />
-      </div>
+  <!-- ── Photo Slideshow ─────────────────────────────────────────────── -->
+  <div id="slideshow" style="position:relative;width:100%;height:480px;overflow:hidden;background:#000;">
+    <img class="slide" src="images/IMG_1355.jpg" alt="Bayville waterfront" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 40%;opacity:1;transition:opacity 1.2s ease;" />
+    <img class="slide" src="images/IMG_1364.jpg" alt="Bayville bridge" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 40%;opacity:0;transition:opacity 1.2s ease;" />
+    <img class="slide" src="images/IMG_1421.jpg" alt="Bayville gazebo" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 30%;opacity:0;transition:opacity 1.2s ease;" />
+    <img class="slide" src="images/IMG_1536.jpg" alt="Bayville marina sunset" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center center;opacity:0;transition:opacity 1.2s ease;" />
+    <img class="slide" src="images/IMG_1554.jpg" alt="Bayville beach sunset" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 30%;opacity:0;transition:opacity 1.2s ease;" />
+    <!-- dot indicators -->
+    <div style="position:absolute;bottom:16px;left:50%;transform:translateX(-50%);display:flex;gap:8px;z-index:2;">
+      <span class="slide-dot" style="width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,0.9);cursor:pointer;"></span>
+      <span class="slide-dot" style="width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,0.4);cursor:pointer;"></span>
+      <span class="slide-dot" style="width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,0.4);cursor:pointer;"></span>
+      <span class="slide-dot" style="width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,0.4);cursor:pointer;"></span>
+      <span class="slide-dot" style="width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,0.4);cursor:pointer;"></span>
     </div>
-  </section>
+  </div>
 
   <!-- ── Get Involved ─────────────────────────────────────────────────── -->
   <section id="involved">
@@ -1020,6 +1016,22 @@
         setTimeout(() => btn.innerHTML = orig, 2000);
       });
     });
+
+    // Slideshow
+    (function() {
+      const slides = document.querySelectorAll('.slide');
+      const dots   = document.querySelectorAll('.slide-dot');
+      let cur = 0;
+      function goTo(n) {
+        slides[cur].style.opacity = '0';
+        dots[cur].style.background = 'rgba(255,255,255,0.4)';
+        cur = (n + slides.length) % slides.length;
+        slides[cur].style.opacity = '1';
+        dots[cur].style.background = 'rgba(255,255,255,0.9)';
+      }
+      dots.forEach((d, i) => d.addEventListener('click', () => { clearInterval(timer); goTo(i); timer = setInterval(() => goTo(cur + 1), 4000); }));
+      let timer = setInterval(() => goTo(cur + 1), 4000);
+    })();
 
     // FAQ accordion
     document.querySelectorAll('.faq-question').forEach(btn => {
